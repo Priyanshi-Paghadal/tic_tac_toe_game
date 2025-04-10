@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -15,9 +15,9 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = 'X';
+      nextSquares[i] = "X";
     } else {
-      nextSquares[i] = 'O';
+      nextSquares[i] = "O";
     }
     onPlay(nextSquares);
   }
@@ -25,9 +25,9 @@ function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = "Winner: " + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
   return (
@@ -71,9 +71,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = "Go to move #" + move;
     } else {
-      description = 'Go to game start';
+      description = "Go to game start";
     }
     return (
       <li key={move}>
@@ -113,3 +113,37 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+// export default function Form({
+//   // Try 'submitting', 'error', 'success':
+//   status = 'empty'
+// }) {
+//   if (status === 'success') {
+//     return <h1>That's right!</h1>
+//   }
+//   return (
+//     <>
+//       <h2>City quiz</h2>
+//       <p>
+//         In which city is there a billboard that turns air into drinkable water?
+//       </p>
+//       <form>
+//         <textarea disabled={
+//           status === 'submitting'
+//         } />
+//         <br />
+//         <button disabled={
+//           status === 'empty' ||
+//           status === 'submitting'
+//         }>
+//           Submit
+//         </button>
+//         {status === 'error' &&
+//           <p className="Error">
+//             Good guess but a wrong answer. Try again!
+//           </p>
+//         }
+//       </form>
+//       </>
+//   );
+// }
